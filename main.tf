@@ -282,7 +282,8 @@ module "runner_binaries" {
   prefix = var.prefix
   tags   = local.tags
 
-  distribution_bucket_name = "${var.prefix}-dist-${random_string.random.result}"
+  # prefix --> need to be Proj, but S3 can't use capital words
+  distribution_bucket_name = "proj-dist-${random_string.random.result}"
   s3_logging_bucket        = var.runner_binaries_s3_logging_bucket
   s3_logging_bucket_prefix = var.runner_binaries_s3_logging_bucket_prefix
 
