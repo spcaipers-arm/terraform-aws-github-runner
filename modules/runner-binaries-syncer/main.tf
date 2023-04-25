@@ -10,10 +10,10 @@ resource "aws_s3_bucket" "action_dist" {
 
 # error creating S3 bucket ACL for proj-dist-4v8yu2m4n4124e2w79n5xma0: AccessControlListNotSupported: The bucket does not allow ACLs
 # │       status code: 400, request id: 1QHXMA76B1K7QF63, host id: M0Va+iueW2JWtSwXWtXoVuVj/bnQzFZRloV3kkdqcDwLCvIZ4ryDrlxfA4KprMfuDqAIDiRRnsQ=
-# resource "aws_s3_bucket_acl" "action_dist_acl" {
-#   bucket = aws_s3_bucket.action_dist.id
-#   acl    = "private"
-# }
+resource "aws_s3_bucket_acl" "action_dist_acl" {
+  bucket = aws_s3_bucket.action_dist.id
+  acl    = "private"
+}
 
 resource "aws_s3_bucket_lifecycle_configuration" "bucket-config" {
   bucket = aws_s3_bucket.action_dist.id
