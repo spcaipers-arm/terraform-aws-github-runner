@@ -3,6 +3,7 @@ locals {
   aws_region  = "eu-west-1"
   profile     = "debug-prod"
   create_service_linked_role_spot = true
+  # debug_prod vpc and subnets.
   subnet_ids = ["subnet-06a7c4e4386a34d64", "subnet-06bd33a279f9b1a2a"]
   vpc_id     = "vpc-012989de052a92752"
   s3_backend_bucket_name = "tf-state-file-287871436243"
