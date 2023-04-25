@@ -5,7 +5,7 @@ module "runner_binaries" {
   tags     = local.tags
 
   # S3 does not accept capital words
-  distribution_bucket_name = "proj-${each.value.os_type}-${each.value.architecture}-dist-${random_string.random.result}"
+  distribution_bucket_name = lower("${var.prefix}-${each.value.os_type}-${each.value.architecture}-dist-${random_string.random.result}")
 
   runner_os           = each.value.os_type
   runner_architecture = each.value.architecture
